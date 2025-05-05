@@ -1,0 +1,10 @@
+/* src/styles/Education.module.css */
+.container {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  
+  .gridContainer {
+    display: flex;
+    justify-content: center;
+  }

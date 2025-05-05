@@ -1,0 +1,40 @@
+/* src/styles/Header.module.css */
+.header {
+  background-color: #16213e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: "Gravitas One", serif;
+  color: white;
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+.logo:hover {
+  color: #d8ab6f;
+  transition: color 0.3s;
+}
+
+.navLink {
+  margin: 0 8px;
+  color: #e0e0e0;
+}
+
+.navLink:hover {
+  color: #488be9;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #6fbdcb;
+}
+
+.avatar:hover {
+  border: 2px solid #488be9;
+  transform: scale(1.05);
+  transition: all 0.3s;
+}

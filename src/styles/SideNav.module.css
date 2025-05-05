@@ -1,0 +1,55 @@
+/* src/styles/SideNav.module.css */
+.sidebar {
+  background-color: #d8ab6f;
+  color: black;
+  padding: 15px;
+  border-right: 3px solid #6fbdcb;
+  transition: border-right 0.2s;
+  height: 100%;
+}
+
+.sidebar:hover {
+  border-right: 3px solid #488be9;
+}
+
+.title {
+  margin-top: 16px;
+}
+
+.subtitle {
+  margin-bottom: 16px;
+}
+
+.divider {
+  margin: 16px 0;
+}
+
+.skillsTitle {
+  margin-bottom: 16px;
+}
+
+.skillContainer {
+  margin-bottom: 16px;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.progressBar {
+  height: 10px;
+  border-radius: 5px;
+  background-color: #223978;
+  transition: background-color 0.2s;
+}
+
+.progressBar:hover {
+  background-color: #488be9;
+}
+
+.progressBarInner {
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
