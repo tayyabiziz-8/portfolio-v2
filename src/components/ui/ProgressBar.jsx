@@ -1,85 +1,68 @@
 // src/components/ui/ProgressBar.jsx
-import React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { Box } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 
-/**
- * Custom animated progress bar component with label and percentage
- * @param {object} props Component props
- * @param {string} props.label Text label for the progress bar
- * @param {number} props.value Percentage value (0-100)
- * @param {string} props.color MUI color name (primary, secondary, success, etc.)
- * @param {object} props.sx Additional sx props for styling
- */
-const ProgressBar = ({ label, value, color = 'primary', sx, showPercentage = true }) => {
-  const theme = useTheme();
-
+const ProgressBar = ({ value = 0, color = '#6fbdcb', height = 10, delay = 0 }) => {
+  const [progress, setProgress] = useState(0);
+  
+  useEffect(() => {
+    // Animate progress after component mounts with optional delay
+    const timer = setTimeout(() => {
+      setProgress(value);
+    }, delay);
+    
+    return () => clearTimeout(timer);
+  }, [value, delay]);
+  
   return (
-    <Box sx={{ mb: 2, ...sx }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
-        <Typography variant="body2" fontWeight="medium">
-          {label}
-        </Typography>
-        {showPercentage && (
-          <Typography variant="body2" color="text.secondary">
-            {value}%
-          </Typography>
-        )}
-      </Box>
+    <Box
+      sx={{
+        position: 'relative',
+        height,
+        width: '100%',
+        borderRadius: height / 2,
+        backgroundColor: alpha(color, 0.15),
+        overflow: 'hidden',
+        boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.1)'
+      }}
+    >
       <Box
         sx={{
-          height: 8,
-          width: '100%',
-          backgroundColor: theme.palette.grey[300],
-          borderRadius: 4,
+          height: '100%',
+          width: `${progress}%`,
+          borderRadius: height / 2,
+          background: `linear-gradient(90deg, ${color}, ${alpha(color, 0.7)})`,
+          transition: 'width 1s cubic-bezier(0.65, 0, 0.35, 1)',
           position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          className="progress-animate"
-          sx={{
+          '&::after': {
+            content: '""',
             position: 'absolute',
-            height: '100%',
-            borderRadius: 4,
-            backgroundColor: theme.palette[color]?.main || color,
-            width: `${value}%`,
-            transition: 'width 1.5s ease-in-out',
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              bottom: 0,
-              right: 0,
-              backgroundImage: `linear-gradient(
-                -45deg,
-                rgba(255, 255, 255, 0.2) 25%,
-                transparent 25%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.2) 75%,
-                transparent 75%,
-                transparent
-              )`,
-              backgroundSize: '25px 25px',
-              opacity: 0.5,
-              animation: 'move 2s linear infinite',
-              zIndex: 1,
-            }
-          }}
-        />
-      </Box>
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `linear-gradient(
+              90deg, 
+              transparent, 
+              rgba(255, 255, 255, 0.3), 
+              transparent
+            )`,
+            transform: 'translateX(-100%)',
+            animation: 'shimmer 2s infinite',
+          }
+        }}
+      />
+      
+      <style jsx="true">{`
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
     </Box>
   );
-};
-
-ProgressBar.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
-  color: PropTypes.string,
-  sx: PropTypes.object,
-  showPercentage: PropTypes.bool
 };
 
 export default ProgressBar;
