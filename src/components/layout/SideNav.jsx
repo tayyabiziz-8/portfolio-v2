@@ -17,12 +17,11 @@ import {
 } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
-import SportsTennisIcon from '@mui/icons-material/SportsTennis';
+import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CodeIcon from '@mui/icons-material/Code';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
 
 // Custom progress component
 import ProgressBar from '../ui/ProgressBar';
@@ -39,13 +38,13 @@ const skills = [
   { name: 'Java', value: 85, color: '#d8ab6f' },
   { name: 'Mobile App Development', value: 80, color: '#488be9' },
   { name: 'Bootstrap', value: 80, color: '#6fbdcb' },
-  { name: 'React', value: 60, color: '#d8ab6f' }
+  { name: 'React', value: 70, color: '#d8ab6f' }
 ];
 
 // Interests data for dynamic rendering
 const interests = [
   { name: 'Football', icon: <SportsSoccerIcon />, color: 'primary' },
-  { name: 'Table Tennis', icon: <SportsTennisIcon />, color: 'secondary' },
+  { name: 'Basketball', icon: <SportsBasketballIcon />, color: 'secondary' },
   { name: 'Literature', icon: <MenuBookIcon />, color: 'primary' },
   { name: 'Coding', icon: <CodeIcon />, color: 'secondary' }
 ];
@@ -53,8 +52,7 @@ const interests = [
 // Social media links
 const socialLinks = [
   { name: 'GitHub', icon: <GitHubIcon />, url: 'https://github.com/' },
-  { name: 'LinkedIn', icon: <LinkedInIcon />, url: 'https://linkedin.com/' },
-  { name: 'Twitter', icon: <TwitterIcon />, url: 'https://twitter.com/' }
+  { name: 'LinkedIn', icon: <LinkedInIcon />, url: 'https://linkedin.com/' }
 ];
 
 // Drawer width
