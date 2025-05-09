@@ -27,21 +27,31 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: 'Distributed Dictionary',
+      description: 'Merge all nodes holding partial dictionary of key-value pairs.'
+    },
+    {
+      id: 4,
       title: 'Paint App',
       description: 'MS Paint inspired editor using C++ OpenCV library.'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Weather App',
       description: 'A weather forecasting app using OpenWeather API.'
     },
     {
-      id: 5,
+      id: 6,
+      title: 'Chest X-Ray Analyzer',
+      description: 'Classifies an x-ray image to one of the labeled diseases.'
+    },
+    {
+      id: 7,
       title: 'Text Editor',
       description: 'A Vim-inspired text editor for fast text manipulation.'
     },
     {
-      id: 6,
+      id: 8,
       title: 'Library/Bookstore DBMS',
       description: 'A database management system for libraries/bookstores.'
     }

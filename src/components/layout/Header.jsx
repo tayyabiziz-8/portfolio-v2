@@ -283,7 +283,7 @@ const Header = ({ onDrawerToggle }) => {
                 Tayyab Irfan Aziz
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
-                tayyab@example.com
+                tayyabsbuni@gmail.com
               </Typography>
             </Box>
             
