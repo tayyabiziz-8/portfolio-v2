@@ -2,7 +2,6 @@
   "name": "portfolio-v2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tayyabiziz-8.github.io/portfolio-v2",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -14,8 +13,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "homepage": "https://tayyabiziz-8.github.io/portfolio-v2"
+    "web-vitals": "^2.1.4"
 
   },
   "scripts": {
