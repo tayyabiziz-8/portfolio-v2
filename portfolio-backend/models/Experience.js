@@ -1,3 +1,4 @@
+// portfolio-backend/models/Experience.js
 const mongoose = require('mongoose');
 
 const experienceSchema = new mongoose.Schema({
@@ -7,7 +8,7 @@ const experienceSchema = new mongoose.Schema({
   },
   position: {
     type: String,
-    required: [true, 'Position title is required']
+    required: [true, 'Position is required']
   },
   location: {
     type: String
@@ -17,11 +18,15 @@ const experienceSchema = new mongoose.Schema({
     required: [true, 'Start date is required']
   },
   endDate: {
-    type: Date,
-    default: null // null means currently working
+    type: Date
+  },
+  current: {
+    type: Boolean,
+    default: false
   },
   description: {
-    type: String
+    type: String,
+    required: [true, 'Description is required']
   },
   responsibilities: [{
     type: String

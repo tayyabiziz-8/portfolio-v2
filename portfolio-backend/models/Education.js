@@ -1,3 +1,4 @@
+// portfolio-backend/models/Education.js
 const mongoose = require('mongoose');
 
 const educationSchema = new mongoose.Schema({
@@ -18,18 +19,17 @@ const educationSchema = new mongoose.Schema({
     required: [true, 'Start date is required']
   },
   endDate: {
-    type: Date,
-    default: null // null means currently studying
-  },
-  description: {
-    type: String
+    type: Date
   },
   grade: {
     type: String
   },
-  location: {
+  description: {
     type: String
-  }
+  },
+  achievements: [{
+    type: String
+  }]
 }, {
   timestamps: true
 });

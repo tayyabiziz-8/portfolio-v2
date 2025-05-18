@@ -1,3 +1,4 @@
+// portfolio-backend/routes/educationRoutes.js
 const express = require('express');
 const router = express.Router();
 const {
@@ -8,10 +9,13 @@ const {
   deleteEducation
 } = require('../controllers/educationController');
 
-// GET all education entries and POST new education entry
-router.route('/').get(getEducation).post(createEducation);
+router.route('/')
+  .get(getEducation)
+  .post(createEducation);
 
-// GET, PUT, DELETE single education entry
-router.route('/:id').get(getEducationById).put(updateEducation).delete(deleteEducation);
+router.route('/:id')
+  .get(getEducationById)
+  .put(updateEducation)
+  .delete(deleteEducation);
 
 module.exports = router;

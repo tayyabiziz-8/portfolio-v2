@@ -1,3 +1,4 @@
+// portfolio-backend/models/Skill.js
 const mongoose = require('mongoose');
 
 const skillSchema = new mongoose.Schema({
@@ -5,22 +6,23 @@ const skillSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Skill name is required']
   },
-  proficiency: {
-    type: Number,
-    required: [true, 'Proficiency level is required'],
-    min: 0,
-    max: 100
-  },
   category: {
     type: String,
-    required: [true, 'Category is required'],
-    enum: ['Programming Languages', 'Frameworks', 'Tools', 'Soft Skills', 'Other']
+    required: [true, 'Category is required']
   },
-  icon: {
-    type: String // URL or name of icon
+  proficiency: {
+    type: Number,
+    min: 0,
+    max: 100,
+    default: 50
   },
   yearsOfExperience: {
-    type: Number
+    type: Number,
+    default: 0
+  },
+  featured: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true

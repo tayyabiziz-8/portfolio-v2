@@ -1,17 +1,21 @@
+// portfolio-backend/routes/experienceRoutes.js
 const express = require('express');
 const router = express.Router();
 const {
-  getExperiences,
+  getExperience,
   getExperienceById,
   createExperience,
   updateExperience,
   deleteExperience
 } = require('../controllers/experienceController');
 
-// GET all experiences and POST new experience
-router.route('/').get(getExperiences).post(createExperience);
+router.route('/')
+  .get(getExperience)
+  .post(createExperience);
 
-// GET, PUT, DELETE single experience
-router.route('/:id').get(getExperienceById).put(updateExperience).delete(deleteExperience);
+router.route('/:id')
+  .get(getExperienceById)
+  .put(updateExperience)
+  .delete(deleteExperience);
 
 module.exports = router;

@@ -1,3 +1,4 @@
+// portfolio-backend/routes/skillRoutes.js
 const express = require('express');
 const router = express.Router();
 const {
@@ -8,10 +9,13 @@ const {
   deleteSkill
 } = require('../controllers/skillController');
 
-// GET all skills and POST new skill
-router.route('/').get(getSkills).post(createSkill);
+router.route('/')
+  .get(getSkills)
+  .post(createSkill);
 
-// GET, PUT, DELETE single skill
-router.route('/:id').get(getSkillById).put(updateSkill).delete(deleteSkill);
+router.route('/:id')
+  .get(getSkillById)
+  .put(updateSkill)
+  .delete(deleteSkill);
 
 module.exports = router;

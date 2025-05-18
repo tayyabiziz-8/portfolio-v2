@@ -1,3 +1,4 @@
+// portfolio-backend/controllers/educationController.js
 const Education = require('../models/Education');
 
 // @desc    Get all education entries

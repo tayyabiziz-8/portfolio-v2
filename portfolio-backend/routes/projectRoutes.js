@@ -1,3 +1,4 @@
+// portfolio-backend/routes/projectRoutes.js
 const express = require('express');
 const router = express.Router();
 const {
@@ -8,10 +9,13 @@ const {
   deleteProject
 } = require('../controllers/projectController');
 
-// GET all projects and POST new project
-router.route('/').get(getProjects).post(createProject);
+router.route('/')
+  .get(getProjects)
+  .post(createProject);
 
-// GET, PUT, DELETE single project
-router.route('/:id').get(getProjectById).put(updateProject).delete(deleteProject);
+router.route('/:id')
+  .get(getProjectById)
+  .put(updateProject)
+  .delete(deleteProject);
 
 module.exports = router;

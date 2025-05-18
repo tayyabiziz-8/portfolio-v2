@@ -1,3 +1,4 @@
+// portfolio-backend/controllers/skillController.js
 const Skill = require('../models/Skill');
 
 // @desc    Get all skills

@@ -1,18 +1,19 @@
+// portfolio-backend/controllers/experienceController.js
 const Experience = require('../models/Experience');
 
-// @desc    Get all work experiences
+// @desc    Get all experience entries
 // @route   GET /api/experience
 // @access  Public
-const getExperiences = async (req, res) => {
+const getExperience = async (req, res) => {
   try {
-    const experiences = await Experience.find().sort({ startDate: -1 });
-    res.status(200).json(experiences);
+    const experience = await Experience.find().sort({ startDate: -1 });
+    res.status(200).json(experience);
   } catch (error) {
     res.status(500).json({ message: 'Server Error', error: error.message });
   }
 };
 
-// @desc    Get single work experience
+// @desc    Get single experience entry
 // @route   GET /api/experience/:id
 // @access  Public
 const getExperienceById = async (req, res) => {
@@ -20,7 +21,7 @@ const getExperienceById = async (req, res) => {
     const experience = await Experience.findById(req.params.id);
     
     if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
+      return res.status(404).json({ message: 'Experience entry not found' });
     }
     
     res.status(200).json(experience);
@@ -29,7 +30,7 @@ const getExperienceById = async (req, res) => {
   }
 };
 
-// @desc    Create work experience
+// @desc    Create experience entry
 // @route   POST /api/experience
 // @access  Public (should be protected in production)
 const createExperience = async (req, res) => {
@@ -41,7 +42,7 @@ const createExperience = async (req, res) => {
   }
 };
 
-// @desc    Update work experience
+// @desc    Update experience entry
 // @route   PUT /api/experience/:id
 // @access  Public (should be protected in production)
 const updateExperience = async (req, res) => {
@@ -49,7 +50,7 @@ const updateExperience = async (req, res) => {
     const experience = await Experience.findById(req.params.id);
     
     if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
+      return res.status(404).json({ message: 'Experience entry not found' });
     }
     
     const updatedExperience = await Experience.findByIdAndUpdate(
@@ -64,7 +65,7 @@ const updateExperience = async (req, res) => {
   }
 };
 
-// @desc    Delete work experience
+// @desc    Delete experience entry
 // @route   DELETE /api/experience/:id
 // @access  Public (should be protected in production)
 const deleteExperience = async (req, res) => {
@@ -72,18 +73,18 @@ const deleteExperience = async (req, res) => {
     const experience = await Experience.findById(req.params.id);
     
     if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
+      return res.status(404).json({ message: 'Experience entry not found' });
     }
     
     await experience.deleteOne();
-    res.status(200).json({ message: 'Experience removed', id: req.params.id });
+    res.status(200).json({ message: 'Experience entry removed', id: req.params.id });
   } catch (error) {
     res.status(500).json({ message: 'Server Error', error: error.message });
   }
 };
 
 module.exports = {
-  getExperiences,
+  getExperience,
   getExperienceById,
   createExperience,
   updateExperience,
