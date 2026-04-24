@@ -12,13 +12,14 @@ const MainSection = ({ children }) => {
   
   // Animate page title on mount
   useEffect(() => {
-    if (titleRef.current) {
-      titleRef.current.classList.add('animate-title');
+    const titleNode = titleRef.current;
+    if (titleNode) {
+      titleNode.classList.add('animate-title');
     }
     
     return () => {
-      if (titleRef.current) {
-        titleRef.current.classList.remove('animate-title');
+      if (titleNode) {
+        titleNode.classList.remove('animate-title');
       }
     };
   }, [pageTitle]);

@@ -11,9 +11,7 @@ import {
   Divider,
   Avatar,
   Tooltip,
-  useMediaQuery,
-  Stack,
-  Chip
+  Stack
 } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
@@ -60,7 +58,6 @@ const drawerWidth = 280;
 
 const SideNav = ({ mobileOpen, onDrawerToggle }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   // Drawer content
   const drawerContent = (

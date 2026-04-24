@@ -1,14 +1,12 @@
 // src/pages/Contact.jsx
 import React, { useEffect } from 'react';
 import { Box, Container, Typography, IconButton, Stack } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { usePageTitle } from '../context/PageTitleContext';
 import ContactForm from '../components/ui/ContactForm';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Contact = () => {
-  const theme = useTheme();
   const { setPageTitle } = usePageTitle();
 
   useEffect(() => {
