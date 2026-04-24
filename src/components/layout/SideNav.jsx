@@ -18,7 +18,7 @@ import {
 import { useTheme, alpha } from '@mui/material/styles';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SportsTennisIcon from '@mui/icons-material/SportsTennis';
 import CodeIcon from '@mui/icons-material/Code';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -37,7 +37,7 @@ const skills = [
   { name: 'HTML & CSS', value: 87, color: '#6fbdcb' },
   { name: 'Java', value: 85, color: '#d8ab6f' },
   { name: 'Mobile App Development', value: 80, color: '#488be9' },
-  { name: 'Bootstrap', value: 80, color: '#6fbdcb' },
+  { name: 'Rust', value: 80, color: '#6fbdcb' },
   { name: 'React', value: 70, color: '#d8ab6f' }
 ];
 
@@ -45,7 +45,7 @@ const skills = [
 const interests = [
   { name: 'Football', icon: <SportsSoccerIcon />, color: 'primary' },
   { name: 'Basketball', icon: <SportsBasketballIcon />, color: 'secondary' },
-  { name: 'Literature', icon: <MenuBookIcon />, color: 'primary' },
+  { name: 'Padel', icon: <SportsTennisIcon />, color: 'primary' },
   { name: 'Coding', icon: <CodeIcon />, color: 'secondary' }
 ];
 
@@ -236,23 +236,6 @@ const SideNav = ({ mobileOpen, onDrawerToggle }) => {
               >
                 {skill.name}
               </Typography>
-              <Chip 
-                label={`${skill.value}%`} 
-                size="small" 
-                sx={{ 
-                  height: 22, 
-                  backgroundColor: alpha(skill.color, 0.2),
-                  color: skill.color,
-                  fontWeight: 600,
-                  fontSize: '0.7rem',
-                  border: `1px solid ${alpha(skill.color, 0.3)}`,
-                  transition: 'all 0.3s',
-                  '&:hover': {
-                    backgroundColor: alpha(skill.color, 0.3),
-                    transform: 'translateY(-1px)'
-                  }
-                }}
-              />
             </Box>
             <ProgressBar 
               value={skill.value} 

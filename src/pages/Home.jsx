@@ -199,16 +199,23 @@ const Home = () => {
                     letterSpacing: '-0.5px',
                     lineHeight: 1.2,
                     position: 'relative',
+                    display: 'inline-block',
+                    mx: { xs: 'auto', md: 0 },
                     '&::after': {
                       content: '""',
                       position: 'absolute',
                       bottom: -12,
-                      left: { xs: '50%', md: 0 },
-                      transform: { xs: 'translateX(-50%)', md: 'none' },
-                      width: '80px',
+                      left: 0,
+                      width: '100%',
                       height: '4px',
                       background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                       borderRadius: '4px',
+                      transform: 'scaleX(0.9)',
+                      transformOrigin: 'center',
+                      transition: 'transform 0.25s ease',
+                    },
+                    '&:hover::after': {
+                      transform: 'scaleX(1)',
                     }
                   }}
                 >

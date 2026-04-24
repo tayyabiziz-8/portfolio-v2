@@ -1,5 +1,5 @@
 // src/components/layout/Header.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { 
   AppBar, 
@@ -8,33 +8,19 @@ import {
   Typography, 
   IconButton, 
   Button, 
-  Avatar, 
-  Menu, 
-  MenuItem, 
-  useMediaQuery,
-  Fade,
-  Tooltip,
-  Divider
+  useMediaQuery
 } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SettingsIcon from '@mui/icons-material/Settings';
-import LogoutIcon from '@mui/icons-material/Logout';
 import { usePageTitle } from '../../context/PageTitleContext';
-
-// Import profile image - adjust path as needed
-import profileImg from '../../assets/image.jpg';
 
 const Header = ({ onDrawerToggle }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { pageTitle } = usePageTitle();
+  usePageTitle();
   const location = useLocation();
   
-  const [anchorEl, setAnchorEl] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const open = Boolean(anchorEl);
   
   // Navigation links configuration
   const navLinks = [
@@ -60,14 +46,6 @@ const Header = ({ onDrawerToggle }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <AppBar 
@@ -206,116 +184,6 @@ const Header = ({ onDrawerToggle }) => {
           </Box>
         )}
 
-        {/* Avatar with dropdown */}
-        <Box>
-          <Tooltip title="Account settings" arrow>
-            <IconButton
-              onClick={handleMenu}
-              size="small"
-              aria-controls={open ? 'account-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              sx={{
-                p: 0.5,
-                border: `2px solid transparent`,
-                transition: 'all 0.3s',
-                '&:hover': {
-                  borderColor: theme.palette.primary.main,
-                  backgroundColor: 'transparent'
-                }
-              }}
-            >
-              <Avatar 
-                src={profileImg} 
-                alt="Tayyab Irfan Aziz"
-                sx={{ 
-                  width: 40, 
-                  height: 40,
-                  border: `2px solid ${theme.palette.primary.main}`,
-                  transition: 'all 0.3s',
-                  '&:hover': { 
-                    borderColor: theme.palette.primary.light,
-                    transform: 'scale(1.05)'
-                  }
-                }}
-              />
-            </IconButton>
-          </Tooltip>
-          
-          <Menu
-            id="account-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            PaperProps={{
-              elevation: 4,
-              sx: {
-                overflow: 'visible',
-                filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                mt: 1.5,
-                backgroundColor: theme.palette.background.paper,
-                border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-                borderRadius: '8px',
-                width: 200,
-                '&:before': {
-                  content: '""',
-                  display: 'block',
-                  position: 'absolute',
-                  top: 0,
-                  right: 14,
-                  width: 10,
-                  height: 10,
-                  bgcolor: theme.palette.background.paper,
-                  transform: 'translateY(-50%) rotate(45deg)',
-                  zIndex: 0,
-                  borderTop: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-                  borderLeft: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
-                },
-              },
-            }}
-            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-            TransitionComponent={Fade}
-          >
-            <Box sx={{ px: 2, py: 1 }}>
-              <Typography variant="subtitle2" color="primary.main" sx={{ fontWeight: 600 }}>
-                Tayyab Irfan Aziz
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
-                tayyabsbuni@gmail.com
-              </Typography>
-            </Box>
-            
-            <Divider sx={{ my: 1 }} />
-            
-            <MenuItem onClick={handleClose} sx={{ 
-              py: 1.5,
-              '&:hover': { backgroundColor: alpha(theme.palette.primary.main, 0.08) }
-            }}>
-              <AccountCircleIcon sx={{ mr: 2, color: theme.palette.primary.main }} />
-              <Typography variant="body2">Profile</Typography>
-            </MenuItem>
-            
-            <MenuItem onClick={handleClose} sx={{ 
-              py: 1.5,
-              '&:hover': { backgroundColor: alpha(theme.palette.primary.main, 0.08) }
-            }}>
-              <SettingsIcon sx={{ mr: 2, color: theme.palette.primary.main }} />
-              <Typography variant="body2">Settings</Typography>
-            </MenuItem>
-            
-            <Divider sx={{ my: 1 }} />
-            
-            <MenuItem onClick={handleClose} sx={{ 
-              py: 1.5,
-              '&:hover': { backgroundColor: alpha(theme.palette.primary.main, 0.08) }
-            }}>
-              <LogoutIcon sx={{ mr: 2, color: theme.palette.error.main }} />
-              <Typography variant="body2" color="error.main">Logout</Typography>
-            </MenuItem>
-          </Menu>
-        </Box>
       </Toolbar>
     </AppBar>
   );
