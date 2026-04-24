@@ -1,5 +1,5 @@
 // src/pages/Projects.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Grid, Container, CircularProgress, Alert } from '@mui/material';
 import { usePageTitle } from '../context/PageTitleContext';
 import ProjectCard from '../components/ui/ProjectCard';
@@ -12,7 +12,7 @@ const Projects = () => {
   const [error, setError] = useState(null);
 
   // Fallback projects data in case API fails
-  const fallbackProjectsData = [
+  const fallbackProjectsData = useMemo(() => ([
     {
       _id: 1,
       title: 'Chess',
@@ -94,7 +94,7 @@ const Projects = () => {
       liveUrl: '',
       imageUrl: '',
     }
-  ];
+  ]), []);
 
   useEffect(() => {
     setPageTitle('Projects');
@@ -119,7 +119,7 @@ const Projects = () => {
     fetchProjects();
     // Cleanup function
     return () => {};
-  }, [setPageTitle]);
+  }, [setPageTitle, fallbackProjectsData]);
 
   if (loading) {
     return (

@@ -11,8 +11,7 @@ import {
   Chip, 
   Fade, 
   Zoom, 
-  Button,
-  useMediaQuery
+  Button
 } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 import { usePageTitle } from '../context/PageTitleContext';
@@ -28,7 +27,6 @@ import profileImg from '../assets/image.jpg';
 const Home = () => {
   const theme = useTheme();
   const { setPageTitle } = usePageTitle();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Feature cards data
