@@ -117,7 +117,7 @@ const Header = ({ onDrawerToggle }) => {
             transition: 'all 0.3s',
             '&:hover': {
               color: theme.palette.secondary.main,
-              transform: 'scale(1.02)',
+              transform: isMobile ? 'none' : 'scale(1.02)',
             },
           }}
         >
@@ -136,12 +136,12 @@ const Header = ({ onDrawerToggle }) => {
                 left: 0,
                 backgroundColor: theme.palette.secondary.main,
                 transform: 'scaleX(0)',
-                transformOrigin: 'bottom right',
+                transformOrigin: 'bottom center',
                 transition: 'transform 0.3s ease-out'
               },
               '&:hover::after': {
                 transform: 'scaleX(1)',
-                transformOrigin: 'bottom left'
+                transformOrigin: 'bottom center'
               }
             }}
           >
