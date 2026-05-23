@@ -26,19 +26,19 @@ const Footer = () => {
     { 
       name: 'LinkedIn', 
       icon: <LinkedInIcon />, 
-      url: 'https://linkedin.com/in/yourprofile',
+      url: 'https://www.linkedin.com/in/tayyab-irfan-aziz/',
       color: '#0A66C2' 
     },
     { 
       name: 'GitHub', 
       icon: <GitHubIcon />, 
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/tayyabiziz-8.',
       color: '#f5f5f5' 
     },
     { 
       name: 'Email', 
       icon: <EmailIcon />, 
-      url: 'mailto:your.email@example.com',
+      url: 'mailto:tayyabsbuni@gmail.com',
       color: '#EA4335' 
     },
   ];
