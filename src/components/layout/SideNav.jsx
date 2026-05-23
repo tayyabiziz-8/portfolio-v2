@@ -49,8 +49,8 @@ const interests = [
 
 // Social media links
 const socialLinks = [
-  { name: 'GitHub', icon: <GitHubIcon />, url: 'https://github.com/' },
-  { name: 'LinkedIn', icon: <LinkedInIcon />, url: 'https://linkedin.com/' }
+  { name: 'GitHub', icon: <GitHubIcon />, url: 'https://github.com/tayyabiziz-8/' },
+  { name: 'LinkedIn', icon: <LinkedInIcon />, url: 'https://www.linkedin.com/in/tayyab-irfan-aziz/' }
 ];
 
 // Drawer width
